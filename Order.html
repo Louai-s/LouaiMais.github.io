@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barcelona Store</title>
+</head>
+<body>
+    <h1 style="color: red;text-align: center; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif" >Barcelona Store</h1>
+    <a href="index.html"><h2 style="font-family: Georgia 'Times New Roman', Times, serif; color: red; font-size: xx-large;text-decoration: underline;">Home</h2></a>
+    <form id="BarcaStore" action=" https://formspree.io/f/moqpkgzq" method="POST">
+        <style>
+            body{
+                margin: 20px 10px 20px 30px;
+                background-image: url('https://i.pinimg.com/originals/6e/b3/92/6eb392b2e022746b193f3697659d8a52.jpg');
+            }         
+               label{
+                color:red ;
+                font-size: larger;
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+                }
+                input{
+                    color:blue;
+                    font-size: larger;
+                    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                }
+                input[type=submit], input[type=reset],[type=button] {
+                     background-color:#DB0101;
+                     border-style:none;
+                     border-width: 4px;
+                     color:white;
+                      padding: 12px 18px; 
+                       margin: 2px 2px;
+                     }
+                     button{
+                        color:blue;
+                    font-size: larger;
+                    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                    background-color:#DB0101;
+                     border-style:none;
+                     border-width: 4px;
+                     color:white;
+                      padding: 12px 18px; 
+                       margin: 2px 2px;
+                     } 
+                .c{
+                    font-size: x-large;
+                }
+        </style>
+        
+        <label class="c">
+            Order Number:<br>
+            <input type="text" name="OrderNumber" size="25" value="29760734" disabled></input>
+        </label>
+        <br>
+        <br>
+
+        <label class="c">
+           First Name:<br>
+            <input type="text" name="FirstName" size="25" maxlength="20" ></input>
+        </label>
+        <br>
+        <br>
+
+        <label class="c">
+            Last Name:<br>
+             <input type="text" name="FirstName" size="25" maxlength="20" ></input>
+         </label>
+         <br>
+         <br>
+
+         <label id="Clothing" class="c">Clothing Type:</label>
+         <br>
+        <input type="radio" id="T-Shirt" name="ClothingType" value="10" checked="checked">
+        <label for="T-Shirt">T-shirt-10₪</label>
+        <br>
+        <input type="radio" id="Tank-Top" name="ClothingType" value="10">
+        <label for="Tank-Top">Tank-Top-10₪</label>
+        <br>
+        <input type="radio" id="Sweatshirt" name="ClothingType" value="20">
+        <label for="Sweatshirt">Sweatshirt-20₪</label>
+        <br>
+        <input type="radio" id="Hoodie" name="ClothingType" value="30">
+        <label for="Hoodie">Hoodie-30₪</label>
+        <br>
+        <input type="radio" id="Jacket" name="ClothingType" value="50">
+        <label for="Jacket">Jacket-50₪</label>
+        <br>
+        <br>
+        <label id="color" class="c" for="color">Color:</label>
+        <br>
+        <select style="font-size: large; width: 100px; height: 30px; border:blue;" id="color" name="color">
+            <option value="0" >Red</option>
+            <option value="5" >Green(+5₪)</option>
+            <option value="-2" >Blue(-2₪)</option>
+            <option value="0" selected>White</option>
+        </select>
+        <br>
+        <br>
+        <label id="size" class="c">Size:</label>
+         <br>
+        <input type="radio" id="S" name="Size" value="0.9" >
+        <label for="S">S(-10%)</label>
+        <br>
+        <input type="radio" id="M" name="Size" value="1">
+        <label for="M">M</label>
+        <br>
+        <input type="radio" id="L" name="Size" value="1">
+        <label for="L">L</label>
+        <br>
+        <input type="radio" id="XL" name="Size" value="1.1">
+        <label for="XL">XL(+10%)</label>
+        <br>
+        <br>
+        <label id="Logo" class="c">Logo Positions:</label>
+        <br>
+        <label for="Back">Back</label>
+        <input type="checkbox" id="Back" name="Logo" value="3">
+        <br>
+        <label for="Front">Front</label>
+        <input type="checkbox" id="Front" name="Logo" value="3">
+        <br>
+        <label for="rightsleeve">Right Sleeve</label>
+        <input type="checkbox" id="rightsleeve" name="Logo" value="3">
+        <br>
+        <label for="leftsleeve">Left Sleeve</label>
+        <input type="checkbox" id="leftsleeve" name="Logo" value="3">
+        <br>
+        <br>
+        <label for="note">*3₪ Per Logo*</label>
+        <br>
+        <br>
+        <label id="Address" class="c" for="Address">Address:</label>
+        <br>
+        <textarea style="color: blue;font-size: medium;" name="address" rows="10" cols="30"></textarea> 
+        <br>
+        <br>
+        <label id="Quantity" class="c" for="Quantity">Quantity:</label>
+        <input type="text" id="Quantity2" name="Quantity" value="1">
+        <br>
+        <br>
+        <input type="button" onclick="calculateThePrice()" value="calculate the price" >
+        <br>
+        <br>
+        <div id="divShekel" style="font-size:x-large;color:yellow;font-weight: bolder;">
+
+        </div>
+        <div id="divUSD" style="font-size: x-large;color:red;font-weight: bolder;">
+
+        </div>
+        <div id="divEUR" style="font-size: x-large;color:cyan;font-weight: bolder;">
+
+        </div> 
+
+        <div id="divBTC" style="font-size:x-large;color:violet;font-weight: bolder;">
+        </div>
+        <br>
+        <input type="submit" value="Send Order"> &nbsp &nbsp
+        <input type="reset" value="Start from the beginning">
+    </form>
+
+</body>
+
+<script>
+    function calculateThePrice(clothingType,color,size,logo,Quantity){
+        var clothingType= document.getElementsByName("ClothingType");
+        var color= document.getElementsByName("color");
+        var size= document.getElementsByName("Size");
+        var logo= document.getElementsByName("Logo");
+        var Quantity= document.getElementById("Quantity2").value;
+        color = Number(color[0].value);
+        var logoprice=Number(0);
+    for (var i = 0;i<clothingType.length;i++){
+        if(clothingType[i].checked){
+            clothingType=Number(clothingType[i].value);
+              break;}  
+}
+        var sizeV=1;
+    for (var k = 0;k<size.length;k++){
+        if(size[k].checked){
+            sizeV=Number(size[k].value);
+               break;}
+    }
+        
+
+    for (var l = 0;l<logo.length;l++){
+        if(logo[l].checked){
+             logoprice+=Number(logo[l].value);
+        }
+    }  
+
+    var totalprice=Number((clothingType*sizeV)+color+logoprice)*Number(Quantity);
+    printResult(totalprice);
+    
+}
+
+function printResult(totalprice){
+    var usd=3.25;
+    var euro=3.95;
+    var btc=120000;
+        var resultDivShekel= document.getElementById("divShekel");
+        resultDivShekel.innerHTML = "Total Price: " + totalprice.toFixed(0) +"₪";
+        var resultDivUsd=document.getElementById("divUSD");
+        resultDivUsd.innerHTML="USD: "+(totalprice/usd).toFixed(4)+"$";
+        var resultDivEUR=document.getElementById("divEUR");
+        resultDivEUR.innerHTML="EUR: "+(totalprice/euro).toFixed(4)+"€";
+        var resultDivBTC=document.getElementById("divBTC")
+        resultDivBTC.innerHTML="BTC: "+(totalprice/btc).toFixed(8)+"₿";
+
+    }
+
+</script>
+
+</html>
