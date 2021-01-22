@@ -161,6 +161,8 @@
 
 </body>
 
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
 <script>
     function calculateThePrice(clothingType,color,size,logo,Quantity){
         var clothingType= document.getElementsByName("ClothingType");
@@ -195,19 +197,18 @@
 }
 
 function printResult(totalprice){
-    var usd=3.25;
-    var euro=3.95;
-    var btc=120000;
-        var resultDivShekel= document.getElementById("divShekel");
-        resultDivShekel.innerHTML = "Total Price: " + totalprice.toFixed(0) +"₪";
+    var resultDivShekel= document.getElementById("divShekel");
+        resultDivShekel.innerText = "Total Price: " + totalprice.toFixed(0) +"₪";
+    $.getJSON("https://zroiyvc.github.io/rates.json",function(currency){
         var resultDivUsd=document.getElementById("divUSD");
-        resultDivUsd.innerHTML="USD: "+(totalprice/usd).toFixed(4)+"$";
+        resultDivUsd.innerText="USD: "+(totalprice/currency.usd).toFixed(4)+"$";
         var resultDivEUR=document.getElementById("divEUR");
-        resultDivEUR.innerHTML="EUR: "+(totalprice/euro).toFixed(4)+"€";
-        var resultDivBTC=document.getElementById("divBTC")
-        resultDivBTC.innerHTML="BTC: "+(totalprice/btc).toFixed(8)+"₿";
-
-    }
+        resultDivEUR.innerText="EUR: "+(totalprice/currency.eur).toFixed(4)+"€";
+        var resultDivBTC=document.getElementById("divBTC");
+        resultDivBTC.innerText="BTC: "+(totalprice/currency.btc).toFixed(8)+"₿";
+     }
+    );
+}
 
 </script>
 
